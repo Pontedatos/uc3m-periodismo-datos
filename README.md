@@ -3,6 +3,7 @@
 Notas sobre **Periodismo de Datos** en *UC3M*
 
 ## Qué es el periodismo de datos
+### Tres saberes implicados
 - Periodismo
 - Visualización
 - Datos
