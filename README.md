@@ -8,9 +8,6 @@ Notas sobre **Periodismo de Datos** en *UC3M*
 - Visualización
 - Datos
 
-## HTTP
-Es una _API_ que tiene cuatro tareas posibles:
-1. POST
-2. GET
-3. DELETE
-4. PUT
+## Por qué *Ponte Datos*
+
+Por Concepción Arenal Ponte
