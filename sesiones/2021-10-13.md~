@@ -1,0 +1,75 @@
+<img src="![img](https://www.retroavangarda.com/wp-content/uploads/2016/03/okladka-london-calling-simonon-clash-elvis-presley-e1460242755720.jpg2) alt="Portada de London Calling de The Clash homenaje a la portada del primer álbum de Elvis Presley">  
+
+
+# ¿A qué hora comienzan las clases? ¿A qué huelen las nubes?
+
+-   Las clases comienzan a las 14:30.
+-   Voy a intentar empezar todas las sesiones con un vídeo corto, que va a empezar a las 14:30 y no durará, normalmente, más de 10 minutos.
+-   Así se cubren esos 5 minutos de cortesía.
+-   Os invito a que veáis algún vídeo también si yo no llegara en esos minutos. Solo hay que buscar "data journalism" o "periodismo datos" en Youtube.
+
+
+# Data Journalism is the New Punk
+
+-   Así definió Simon Rogers al periodismo de datos en el TEDxPanthéonSorbonne en noviembre de 2012 <https://www.youtube.com/watch?v=h2zbvmXskSE>
+-   Define el punk como algo muy importante para la juventud porque les permitía formar una banda solo con tener una guitarra y con tres acordes se podía hacer una canción.
+-   Lo que fue importante para la juventud de los 1970' puede representar ahora los datos: tienes tres conjuntos de datos y ya puedes hacer una historia interesante.
+-   Rogers quería escribir y ser periodista cuando tenía 6 años. Pero tenía miedo a las matemáticas.
+-   Sin embargo en el periodismo de datos necesitas tener conocimientos matemáticos, técnicos.
+-   Hay portales de datos abiertos, proyectos de liberación de datos, filtraciones como Wikileaks&#x2026;
+-   También herramientas libres o abiertas como Datawrapper para crear visualizaciones.
+-   Con UK Riots se volvió a revisar el inicio del periodismo de precisión de Philip Meyer y sus Detroit Riots.
+-   Open Journalism
+-   Joe Strummer: people can do anything.
+
+
+## Enlaces
+
+-   Página de Simon Rogers: <https://simonrogers.net>
+-   Cosas que hace en Google <https://trends.google.com/trends/story/US_cu_6fXtAFIBAABWdM_en>
+-   Data Journalism Podcast: <https://simonrogers.net/2021/04/26/introducing-the-data-journalism-podcast/>
+
+
+# lolcat
+
+-   Si disponemos del comando `man`, podemos usarlo para saber qué es `lolcat`:
+-   NAME, lolcat: "rainbow coloring effect for text console display"
+-   SYNOPSIS: `lolcat [options] [files] ...` (recuerda la estructura `comando opciones argumentos`. En este comando se pueden poner más de un argumento (más de un archivo) en la misma línea.
+-   DESCRIPTION: "lolcat  is  a program that concatenates files, or standard input, to standard output (like the generic cat), and adds rainbow coloring to it."
+-   Así que es como `cat` pero le da un colorido de arcoiris a la salida.
+
+
+## Instalación
+
+-   En Mac haremos `brew install lolcat`
+-   En Cygwin es un poco más complicado porque no está empaquetado para Cygwin así que podemos usar, por ejemplo, la librería `lolcat` de `ruby`.
+
+
+## ¿Ruby?
+
+-   Sin entrar mucho en detalles, `ruby` es un lenguaje de programación moderno que pretendía lo que mucho pretenden
+
+
+## Ruby can't fail
+
+-   Nota: el nombre sigue la línea del London Calling de los Clash y su canción "Rudy can't fail" <https://www.youtube.com/watch?v=uEK9oK02D1M>
+-   No siempre se acierta sobre el terreno y en caliente, pero a veces hay que tomar decisiones.
+-   Parece ser que no somos lxs primerxs que experimentamos ciertos problemas con Ruby en Cygwin así que quien tiene problemas con `lolcat` puede probar esto:  
+    -   <https://itectec.com/superuser/windows-gem-not-working-in-cygwin/>
+    -   Run the Cygwin setup, and choose Ruby, under the Ruby category. Also make sure that you've installed the gcc compiler and GNU make, under the Devel category, so that the gems can build the native extensions. <https://stackoverflow.com/questions/14376138/how-to-fix-gem-install-gtk2-in-cygwin-ruby-on-windows>
+    -   install curl, git, nano, openssh, openssl, unzip, util-linux, vim, wget. <https://gist.github.com/ahsankhatri/260c58929962a01bf9e26ef660c832d0>
+    -   Descargar ruby <https://rubyinstaller.org/downloads/> y añadirlo al `PATH`: `/cygdrive/c/Ruby22/bin`
+    -   Edit ~/.bash\_profile or ~/.profile, Add alias gem=gem.bat, Install Mailcatcher  gem install mailcatcher, Now whenever you install any package from gems you need to add alias in ~/.bash\_profile in order to run in cygwin OR you can directly batch file with gem.bat -v, e.g. add alias mailcatcher=mailcatcher.bat in ~/.bash\_profile
+
+
+# Enlaces
+
+-   Herramientas curiosas de la línea de comandos, <https://infotics.es/articulo/herramientas-curiosas-en-la-linea-de-comandos/>, las veremos el próximo día.
+
+
+# Pruebas
+
+-   Empieza de forma simple, con el comando `echo` y manda la salida a `lolcat`
+-   Baja el código fuente de una página y pásale `lolcat`
+-   Guarda alguno de estos resultados y míralo con `nano`
+

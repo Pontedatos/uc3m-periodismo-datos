@@ -1,0 +1,198 @@
+
+# The mother of all demos
+
+![img](/img/1968-demo-poster.jpg "1968 a research center for augmenting human intellect")  
+
+-   Es como se conoce a la presentación realizada por Douglas Engelbart en los Xerox Labs de Palo Alto en 1968.
+-   Los Xerox Labs dieron forma a las interfaces gráficas que luego popularizaron Mac o Windows.
+-   Pero este nombre es posterior, de 1994.
+-   Entonces se llamó "Un centro de investigación para aumentar el intelecto humano". Formaba parte de la conferencia de Fall Joint Computer en el Brooks Hall en San Francisco.
+-   El proyecto fue resultado del trabajo realizado en el Augmentation Research Center del Instituto de Investigación de Stanford.
+-   En esta [demostración de las tecnologías experimentales](https://es.wikipedia.org/wiki/The_Mother_of_All_Demos) se presentan varios hitos:  
+    -   Un sistema operativo denominado NLS
+    -   Uno de los primeros ratones.
+    -   Sistema de videoconferencia
+    -   Sistema de teleconferencia
+    -   Hipertexto
+    -   Procesamiento de textos
+    -   Hipermedia
+    -   Archivo de vinculación dinámica
+    -   Control de revisiones (versiones)
+    -   Editor en tiempo real colaborativo
+
+
+## Enlaces
+
+-   Vídeo resumen que visionamos: <https://www.youtube.com/watch?v=B6rKUf9DWRI>
+-   Vídeo completo: <https://www.youtube.com/watch?v=yJDv-zdhzMY>
+-   Doug Engelbart Institute: <https://dougengelbart.org/content/view/209/>
+
+
+## Prueba
+
+-   Contrasta el uso que haces del ordenador con el uso que proponía Doug y explícalo.
+-   Puedes ayudarte de una tabla.
+-   ¿Qué cosas permanecen y qué ha cambiado?
+
+
+# Entidades HTML
+
+Una persona quería mostrar una flecha en Markdown tal como se le mostraba en su M$Word. Es decir, en este editor si escribes `->` se convierte en el carácter de una flecha que apunta a la derecha.  
+En Markdown se pueden incluir estos caracteres pero para ello hemos de saber su codificación HTML. Recordad que **allí donde Markdown lo hace HTML**.  
+
+En HTML estos caracteres que no son los comunes se tienen que representar con un código hexadecimal. Tened en cuenta que la codificación [ASCII](https://es.wikipedia.org/wiki/ASCII) (American Standard Codification for Information Exchange, codificación americana estándar para el intercambio de información) cubría solo los caracteres habituales del alfabeto inglés. Por tanto, ni la `ñ` ni las tildes están ahí. Para representar estos caracteres se puede hace a través de entidades HTML o bien de código hexadecimal. Se pueden usar ambos pero las entidades HTML se han hecho para que sean más fáciles de recordar. Eso sí, no cubren **todos** los caracteres y en el resto de casos, como el de la flecha, hay que poner el código hexadecimal.  
+
+Las entidades HTML son un conjunto de caracteres o `string` que empiezan por un ampersand `&` y terminan con un `;` punto y coma. Por ejemplo, el carácter `á` se escribe `&aacute;`; el carácter `é` se escribe `&eacute;`, etc;  
+
+Las entidades HTML también nos sirven para conocer que en todos los lenguajes informáticos existen los **caracteres reservados**, es decir, caracteres que no podemos usar tal cual porque el lenguaje los entiende de una manera especial. Como en HTML el carácter de `<` menor que es el inicio de una **etiqueta**, si queremos poner una expresión matemática del tipo `4<6`, cuatro es menor que 6, habrá que poner la entidad de ese carácter: `4&lt;6`, donde `&lt;` corresponde al carácter `<` y donde `lt` viene de *lower than*.  
+
+Esto ocurre con el propio carácter de ampersand. Si queremos usarlo y que HTML no lo entienda como el inicio de una entidad HTML, hemos de poner la entidad. Así, la empresa `Ernest&Young` se pondría en HTML como `Ernest&amp;Young`, donde `amp` proviene de ampersand.  
+
+
+## Enlaces
+
+-   Página de ayuda de Mozilla: <https://developer.mozilla.org/es/docs/Glossary/Entity>
+-   Lista completa de entidades: <https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references>
+
+
+## Prueba
+
+Entonces, ¿cuál es la entidad HTML para la flecha que quería representar nuestra compañera?  
+
+
+# Escapar caracteres en la terminal *Shell*
+
+-   Como cualquier otro lenguaje informático, los dialectos de la `Shell` (`Bash` o `zsh`, que son los que usamos) tienen también caracteres reservados que habría que "escapar" para que no los entienda como tal si los queremos poner de determinada manera.
+-   Algunos de estos caracteres los hemos visto:  
+    -   **`>`:** para enviar la salida de un comando (STDOUT) a un archivo que crea en el acto o sobreescribe si ya existiera.
+    -   **`>>`:** para enviar la salida de un comando (STDOUT) al final de un archivo si existe, y si no lo crea.
+    -   **`|`:** para enviar la salida de un comando (STDOUT) a un comando (como STDIN) para que lo interprete.
+-   Así, por ejemplo, si queremos decirle a `echo` que `6 > 3`, seis es mayor que tres, debemos escapar el carácter porque si no lo que hará `echo` será decir `6` y esa salida estándar STDOUT la enviará a un archivo de nombre 3 que contendrá 6. Podéis probarlo.
+-   Para escaparlo podemos hacer dos cosas (siempre se pueden hacer varias cosas).  
+    -   Una es propia del comando `echo`, y es entrecomillar todo el texto para que entienda que todo es parte de la cadena de caracteres o `string`: `echo "6 > 3"`.
+    -   Otra es escapar solo el carácter, y eso en la shell se hace con el carácter `\`: `echo 6 \> 3`
+
+
+## Enlaces
+
+-   <https://www.shellscript.sh/escape.html>
+
+
+## Prueba
+
+Dado el significado que tienen las comillas para el comando `echo`, cómo harías para que devolviera una frase como: La Justicia europea considera "discriminatorio" el sistema de financiación del bono social de las eléctricas (Fuente: <https://www.eldiario.es/economia/justicia-europea-considera-discriminatorio-sistema-financiacion-bono-social-electricas_1_8394400.html>)  
+
+
+# Cambiar la home en Cygwin
+
+-   Queremos cambiar la home de Cygwin.
+-   Este es un juego divertido que la gente de Mac o GNU/Linux no necesita hacer, en principio.
+-   Recordemos que cuando digo `home` me refiero al directorio del sistema de archivos donde se encuentran mis archivos personales, es decir, lo que en un Windows o Mac es mi espacio del ordenador y a partir de ahí cuelgan las carpetas de `Escritorio`, `Descargas`, etc.
+-   Por defecto, la **home** del usuarix de Cygwin es el directorio de instalación del programa que monta una estructura Unix con ruta `/home/nombre-usuarix/`.
+-   Esto lo vemos cuando arrancamos el programa y escribimos (le preguntamos) `pwd` (imprime el directorio de trabajo) y devuelve una ruta que es esa.
+-   Para ver el árbol de directorios de Cygwin o Mac o Linux, podéis hacer `tree -L 1 /`. El comando `tree` muestra el árbol de directorios y archivos. Con la opción `-L 1` (`L` de *level* o nivel) muestra un nivel del árbol desde el punto (el argumento `/`) que le hemos dicho, en este caso la raíz, principio o núcleo del árbol de directorio representado por una `/` barra.
+-   Cygwin instala, por defecto, el espacio de usuario en una parte del propio programa, en `/home/`. Lo que queremos hacer es que tenga como `home` el espacio de mi usuario de Windows.
+-   Para disfrutar de `Cygwin` y acceder al espacio de quien usa el ordenador de Windows, una opción es [modificar](http://stackoverflow.com/questions/1494658/how-can-i-change-my-cygwin-home-folder-after-installation%0A) la variable `db_home` en `/etc/nsswitch.conf` con nuestro editor `nano`.
+-   Pero antes&#x2026;
+
+
+## Antes de cambiar la `home`
+
+En la `home` de Unix se crean unos archivos por defecto:  
+
+-   `.bashrc`, donde se encuentra la configuración de `BASH`.
+-   `.bash_profile`, donde se encuentra la información del perfil de lxs usuarixs de `BASH`.
+-   `.bash_history`, donde se almacenan los comandos que utilizamos.
+
+Tanto si estos archivos contienen información útil como si no, antes de cambiar la **home**, cópialos al directorio que va a ser el nuevo directorio de trabajo, es decir:  
+
+    cp .bash* /cygdrive/c/Documents and Settings/usuarix/.
+
+
+## ¿Quién soy yo?, ¿cuál es mi usuarix?
+
+-   Hay un comando que nos lo dice, `whoami`.
+-   Dado que Cygwin ha copiado el nombre de Windows, esto funciona también aquí.
+
+    whoami
+
+
+## Editemos nsswitch.conf
+
+-   A la hora de escribid nombres de archivos, de directorios o rutas completas, recordad que la tecla de tabular es vuestra amiga :smiley-cat:
+-   Entonces, escribimos `nano /etc/nsswitch.conf`
+-   Y al final del archivo, abajo, escribimos `db_home: windows` o bien `db_home: /%H`.
+-   Guardamos y salimos (o salimos y guardamos :recycle:)
+
+
+## ¿Hashtag? ¿Qué es la almohadilla?
+
+-   Tened en cuenta que en los archivos de configuración de la `Shell`, la almohadilla `#` que aparece al principio de línea significa que la línea está comentada, es decir, que no la va a leer el programa que quiera leerla para hacer algo.
+-   En Markdown el mismo carácter es el equivalente del elemento `h1` de HTML o "encabezamiento de primer nivel".
+-   Así que os pueden quedar varias líneas comentadas, incluso contad lo que habéis hecho en una línea comentada, para que cuando volváis a este archivo sepáis por qué esta línea es así:  
+    
+        # Ahora modifico la línea de la variable db_home
+
+
+## ¿No fue posible?
+
+Si a alguien no le funciona, puede proponer este otro método que proponen en esta [página](http://stackoverflow.com/questions/225764/safely-change-home-directory):  
+
+    mkpasswd -l -p "$(cygpath -H)" > /etc/passwd
+
+
+# Listar archivos, opciones
+
+-   **`ls`:** listamos archivos y directorios
+-   **`ls -a`:** listamos archivos y directorios ocultos
+-   **`ls -la`:** listamos archivos y directorios ocultos con detalle.
+-   Hay un montón de opciones más.
+
+
+# Copiar archivos y/o directorios
+
+-   Para copiar está el comando `cp`
+-   Su comportamiento es `cp OPCIONES ruta/s-origen ruta-destino`. Es decir, admite copia una cosa o varias a un destino final.
+-   Tened en cuenta siempre eso que os decía que cuando ponemos el nombre de los archivos o las carpetas en realidad estamos poniendo su ruta en el sistema de ficheros.
+-   Si copiamos un directorio y tiene contenido hemos de poner la opción `-r` que significa "copia recursiva".
+
+
+# Mover archivos y/o directorios
+
+-   Para mover archivos, es decir, cortar y pegar algo en un destino determinado, está el comando `mv`.
+-   Su comportamiento es `mv OPCIONES ruta/s-origen ruta-destino`. Admite, también, mover una o varias cosas a un destino final.
+-   Se puede usar también para renombrar archivos o carpetas. Es decir, si hacemos `mv hola.txt adios.txt` lo que hacemos es mover el archivo `hola.txt` al archivo `adios.txt`, es decir, borrar `hola.txt` y crea `adios.txt`; y si existiera, lo sobreescribe.
+
+
+# Wildcards o comodines
+
+-   A la hora de listar, copiar, mover y otras operaciones se pueden usar las `wildcards` o comodines.
+-   Imaginad que tenéis una carpeta en vuestro Escritorio de nombre `data` y dentro de ella tenéis archivos `csv`, `json` y `xls`, todos en la misma carpeta. Y queréis organizar eso un poco por tipo de archivo.
+-   Entonces creamos unas carpetas que se llamarán `csv`, `json` y `xls` dentro de `data`.
+-   Nos situamos en el directorio `data` con el comando `cd`: `cd ~/Escritorio/data`
+-   Creamos las carpetas con `mkdir`: `mkdir csv json xls`.
+-   Movemos los archivos con mv: `mv *.json json/`, y luego con los otros dos tipos de archivos.
+
+
+## Enlaces
+
+-   Wildcards: <https://www.shellscript.sh/wildcards.html>. Forma parte de una guía sobre programación en la Shell que no tiene mala pinta.
+
+
+# Make a better prompt
+
+Para cuando usemos git el próximo día:  
+<https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh>  
+
+
+# Mac
+
+No hace falta instalar todo XCode sino que hay que instalar Command Line Tools for XCode. La versión dependerá de la versión que tengáis  
+
+    xcode --install
+
+
+# Almohadilla
+
+<https://es.wikipedia.org/wiki/Almohadilla>
+

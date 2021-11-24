@@ -1,0 +1,157 @@
+
+# Datos
+
+Hemos repasado los términos de periodismo de datos a propósito de lo que haremos después.  
+
+-   Periodismo de datos alude al uso de datos pero no hay que olvidar que estos datos son registros electrónicos
+-   El hecho de llamarlo "periodismo guiado por datos" o *data driven journalism* no debe menospreciar que lo importante es el periodismo.
+-   Pero hay que saber trabajar con datos como una parte más del trabajo periodístico.
+-   El *Computer Assisted Reporting* o periodismo asistido por ordenadores lleva funcionando en EE.UU. desde los 1950.
+
+
+# Tipos de formatos de datos
+
+Aunque no hemos empezado por aquí, lo hago así para que se entienda mejor por parte de quien lo lea.  
+
+En este caso no hablamos de las bases de datos y de SQL sino de los tres tipos de formatos de datos de ficheros que nos vamos a encontrar habitualmente:  
+
+1.  *\*SV* o valores separados por cualquier valor.
+2.  *JSON* o *JavaScript Object Notation*, notación de objetos *JS*.
+3.  *XML* o *eXtensible Markup Language*, lenguaje de marcas extensible.
+
+
+## XML
+
+Los ficheros XML no los vamos a ver porque:  
+
+-   Son más complicados de leer.
+-   Por tanto, es más complicado trabajar con ellos
+
+
+## JSON
+
+-   Son los ficheros que mejor funcionan con aplicaciones web.
+-   Utilizan la sintaxis de *JS*.
+-   Permiten más complejidad que los *\*SV*, por eso son más complejos de leer.
+
+
+## *\*SV*
+
+-   Normalmente serán llamados con terminación *csv* incluso aunque no utilicen comas para separar los valores.
+-   Son los más sencillos.
+-   Pero también los menos estandarizados.
+-   Los valores separados por comas se visualizan como una tabla simple con filas y columnas.
+-   La mayoría de los recursos disponibles en los catálogos de Datos Abiertos se encuentran en formato CSV.
+-   Elportaldedatoseuropeodisponedemásde120milconjuntosdedatosenformatoCSV,siendoelformatoquemásabundaenestecatálogodeDatosAbiertos.•Porsuparte,elcatálogonacionaldatos.gob.escuentaconcasi14mildatasetsenformatoCSV,siendoigualmente,elformatomayoritario.
+
+
+# Aprender a partir de una tabla de datos
+
+-   A partir del listado de la clase aprendemos algunas cosas de las tablas.
+-   La tabla es una representación visual de un *\*SV*, un archivo de valores separados por comas.
+-   La tabla la leemos de izquierda a derecha y de arriba a abajo.
+-   La lectura horizontal se corresponde a las filas y la vertical a las columnas.
+-   Las filas son las "líneas" del archivo.
+-   A veces, aunque no siempre, la primera línea es la **cabecera** de la tabla e indica qué información tiene cada columna.
+-   La información de la columna está relacionada con el **tipo de datos** que tiene la tabla.
+-   Cada intersección de fila y columna es una celda.
+-   Cada variable es una columna
+-   datos.gob.es ha [[<https://datos.gob.es/sites/default/files/doc/file/guia_csv_vf.pdf>
+
+][publicado]] una guía muy completa, también en formato [chuleta](https://datos.gob.es/sites/default/files/doc/file/cheat_sheet_csv_vf.pdf).  
+
+
+# Tipos de datos
+
+
+## Numéricos
+
+-   Cuando una celda tiene números es probable que esos datos sean **numéricos**.
+-   Pero no siempre ocurre ya que solo son considerados *numéricos* si queremos realizar operaciones matemáticas con ellos.
+-   En nuestro caso, estos números corresponden a un identificador, que en este caso está compuesto por números.
+-   Por tanto, en este caso estos números no son datos *numéricos* sino *string*, "cadena de caracteres" o *literales*.
+-   Algunas aplicaciones reconocen automáticamente o pueden hacerlo los tipos de datos para realizar operaciones específicas con ellos.
+-   Esto suele mostrarse visualmente de alguna manera destacada, por ejemplo, poniendo esos datos en color verde.
+
+
+### Tipos de datos numéricos
+
+-   **integer:** números enteros, sin decimales. Atención si tienen el separador de millar porque es distinto en español (punto) que en inglés (coma). Algunos programas lo entienden según tu codificación del programa pero otras veces hay que indicarlo.
+-   **decimal:** números con decimales pero &#x2013;explicación corta&#x2013; pocos decimales y siempre el mismo número de decimales. Por cómo son tratados, son más lentos de procesar que los `float`.
+-   **float or double:** números con decimales pero que pueden tener muchos decimales y/o variable en su longitud. Por cómo son tratados son más rápidos de procesar que los `decimal`
+-   **date or datetime:** la forma más estándar suele ser la que sigue el esquema `YYYY-MM-DD`, donde `Y` significa `Year`, y al ser cuatro tienen que ponerse cuatro cifras; `M` significa `Month`, y al ser dos tienen que ponerse dos cifras; y `D` significa `Day` y al ser dos tienen que ponerse dos cifras. Fíjese que en este tipo de datos numérico se utiliza un guión para separar las unidades temporales, aunque hay veces que se separan con `/`, no es lo más habitual. Hay veces que se incluye también la hora `time`, a continuación de la fecha, o bien separada con una `T` de `Time` o, simplemente, con otro guión, en la forma `HH:MM:SS`: `2021-09-21-14:30` o `2021-09-21+14:30`. Se suelen poner horas y minutos si no se necesitan los segundos, pero puede haber segundos e incluso décimas de segundos: `2021-09-21T14:30:00.5`. También se puede indicar la zona temporal añadiendo una `Z` al final que indica que se está en horario `UTC` (*Universal Time Coordinated*&#x2026; en realidad no está en inglés [exactamente](https://es.wikipedia.org/wiki/Tiempo_universal_coordinado)). Madrid está en UTC+2 en horario de verano y UTC+1 en horario de invierno por lo que, la fecha anterior se escribiría en Canarias así: `2021-09-21T14:30:00.5Z` pero en Madrid sería `=2021-09-21T14:30:00.5+2=`. El mapa con los husos horarios lo tenéis en la [Wikipedia](https://es.wikipedia.org/wiki/Tiempo_universal_coordinado#/media/Archivo:World_Time_Zones_Map.png). El tema de las fechas se ha especificado tanto quizás porque ha generado unos cuantos problemas informáticos. Véase, por ejemplo, el [problema del año 2000](https://en.wikipedia.org/wiki/Year_2000_problem) que fue bastante comentado: [CCFN TV](https://www.youtube.com/watch?v=Mw_2P-FKEr8), [NatGeo](https://www.youtube.com/watch?v=ddzbxJasID4), [The Science Elf](https://www.youtube.com/watch?v=PvXVWCckDMY). Pero, ¿puede volver a pasar? ¡Sí! Ya tenemos el [Year 2038 Problem](https://en.wikipedia.org/wiki/Year_2038_problem) por el registro de hora en 32 bits. La solución pasa por hacerla en [64 bits](https://opensource.com/article/19/1/year2038-problem-linux-kernel).
+-   **period:** Algunas veces ([duration data type de XML Schema](https://www.w3schools.com/XML/schema_dtypes_date.asp)) se utiliza también el tipo de dato de tiempo periódico que obedece al periodo de la muestra del dato, por ejemplo:  
+    -   `P` al inicio indica que se trata de un dato periódico.
+    -   `nY` indica el número de años.
+    -   `nM` indica el número de meses.
+    -   `nD` indica el número de días.
+    -   `T` indica el comienzo de horas, minutos o segundos, según vaya `nH`, `nM` o `nS`
+    -   En este tipo de dato se pueden dar valores negativos para indicar mediciones aproximadas. Por ejemplo, si es `-P10D` indica un periodo menor a diez días.
+
+
+## *Strings*
+
+-   Se denomina *strings*, cadena de caracteres o literales al texto normal.
+
+
+## Booleanos
+
+-   Representan dos valores de una lógica binaria.
+-   "Verdadero o Falso", "True or False", "Sí o No", "0 o 1", etc.
+-   El nombre se debe a [George Boole](https://es.wikipedia.org/wiki/George_Boole), "desarrolló un sistema de reglas que le permitían expresar, manipular y simplificar problemas lógicos y filosóficos cuyos argumentos admiten dos estados (verdadero o falso) por procedimientos matemáticos."
+
+
+# Repaso de infraestructura
+
+-   Hay que instalarse [OpenRefine](https://openrefine.org), la navaja suiza de la limpieza de datos. Si no podéis lo hacemos el próximo día.
+-   Instalación de la terminal&#x2026;
+
+
+## XCode
+
+-   Hay gente con MacOSX que no ha podido instalar XCode porque le sale un aviso de que no tiene espacio en disco.
+-   Este tipo de mensajes están bien, son normales, las aplicaciones ponen mensajes&#x2026; pero eso no tiene que frenarnos para nuestros propósitos. Hemos de preguntarnos qué podemos hacer.
+-   Una opción es mirar el tamaño de nuestro disco duro. Se puede hacer por aplicaciones gráficas o bien con el comando `df`:
+
+    df -h
+
+Si no tenemos espacio, debemos buscar la forma de tenerlo.  
+Si tenemos, podemos buscar ayuda:  
+
+-   A alguien que sepa.
+-   A otras personas, en el foro de la clase.
+-   A mí.
+-   A tu buscador favorito.
+
+Si usamos [duckduckgo](https://duckduckgo.com/) para eso con una búsqueda tipo [xcode fail install disk space](https://duckduckgo.com/?t=ffab&q=xcode+fail+install+disk+space&atb=v224-1&ia=web) y hemos hecho una pregunta [inteligente](https://sindominio.net/ayuda/preguntas-inteligentes.html):  
+
+-   <https://stackoverflow.com/questions/53432700/xcode-on-mac-app-store-cant-install-show-disk-space-not-enough#55518395>
+-   <https://discussions.apple.com/thread/8622103?answerId=250008933022#250008933022>
+
+Si eso no nos ayuda, seguir buscándolo.  
+
+
+## Cygwin
+
+Lo vemos el próximo día  
+
+
+## Tablet Windows 10
+
+No parece tener ningún problema para instalar programas Windows.  
+
+
+# Periodismo y Visualización de datos
+
+-   Se habla de periodismo y visualización de datos porque entendemos que hay una línea argumental entre ambos conceptos.
+-   El periodismo de datos usa la visualización de datos tanto en la etapa de análisis como en la de presentación de resultados.
+-   A la vez son términos que no se han definido por completo. ¿Se puede hablar de periodismo y visualización sin análisis? No, pero, la visualización remite también al análisis de datos.
+
+
+# Entrevista con Philip Meyer
+
+He encontrado este [interesante artículo](https://www.researchgate.net/publication/317133573_Philip_Meyer_the_outsider_who_created_Precision_Journalism) donde hablan de periodismo de precisión y le trasladan unas preguntas al propio Philip Meyer, que las responde ampliamente.  
+También me gustaría que vierais el vídeo, un corte de una entrevista a [Philip Meyer](https://www.youtube.com/watch?v=FbYR78vyhw0) donde habla del *Harvard Data Text*:  
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FbYR78vyhw0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+

@@ -1,0 +1,124 @@
+
+# Contenidos
+
+
+## Terminal
+
+Tres comandos vamos a usar:  
+
+-   `pwd` o *print working directory*, es decir, imprime el directorio de trabajo.
+-   `ls`, sirve para listar los archivos y directorios del directorio donde estás.
+-   `cd`, para cambiar de directorio.
+
+
+## Jerarquía del sistema de directorios
+
+-   Metáfora arriba/abajo en un eje de Y donde el punto 0 es la raíz del sistema operativo, representado en Unix con una `/` y en
+-   Metáfora adelante/atrás en el eje de las X donde el punto 0 es la raíz del sistema operativo.
+-   Metáfora entrar al directorio/salir del directorio.
+-   En el mundo web además del punto 0 de la web está la URI o dirección del recurso en la red. Veámoslo con un ejemplo: `https://workforus.theguardian.com/careers/product-engineering/`  
+    -   En esta URL el dominio es la raíz, en este caso `workforus.theguardian.com`
+    -   El directorio de primer nivel sería `careers`.
+    -   Que tendría dentro el directorio `product-engineering`
+    -   Y dentro estará el archivo `index.html`
+
+    workforus.theguardian.com
+    └── careers
+        └── product-engineering
+            └── index.html
+
+Voy a añadir además los directorios `img` y `js` que cuelguen de la raíz del árbol y les voy a crear un archivo dentro de cada uno:  
+
+    workforus.theguardian.com
+        ├── careers
+        │   └── product-engineering
+        │       └── index.html
+        ├── img
+        │   └── icon.png
+        └── js
+            └── lib.js
+
+Si estoy en `index.html` y quiero referirme a la imagen `icon.png` que está en el directorio de las imágenes, puedo hacerlo con la ruta relativa o la ruta absoluta:  
+
+-   Ruta relativa: según en el sitio en el que me encuentro, es decir, en `index.html`, luego tengo que subir un directorio hasta `careers`, otro hasta la raíz `workforus.theguardian.com`, y luego bajar al directorio `img`. Eso se representa así: `../../img/icon.png`. Es decir, con `../` se sube un directorio.
+-   Ruta absoluta: desde la raíz. Dado que la raíz está representada por una `/`, hacemos: `/img/icon.png`
+-   Ruta URI: dado que es un recurso disponible en la red de Internet, también podría tener la ruta `https://workfocus.theguardian.com/img/icon.png`. Cuando se ponen rutas URI se puede quitar la parte del protocolo, lo cual se hace por si en algún caso tiene problemas con uno u otro, quedando así: `//workfocus.theguardian.com/img/icon.png`
+
+El porqué poner uno u otro depende de cómo esté montada la web. Suele ser mejor poner rutas absolutas si crees que las relativas pueden variar, pero también podrían cambiar potencialmente las absolutas.  
+
+
+## Git
+
+
+### Instalación
+
+Instalamos git en el ordenador.  
+
+-   En cygwin, `apt-cyg install git`
+-   En linux, `sudo apt install git`
+-   En mac, `brew install git`
+
+
+### Problemas en Windows: el Antivirus
+
+-   Se han detectado problemas o bien al instalar git o bien al clonar el repositorio luego.
+-   Cuando estéis con estas cosas desactivar el antivirus o permitidle una excepción de cygwin porque si no no funciona bien.
+
+
+## Mundo web
+
+-   Por cierto, antes de hacer lo de Github&#x2026; ¿habéis visto su página? ¿Os recuerda a algo? ¿No?
+-   Ahora veamos la de Twitter&#x2026; ¿se parecen?
+-   Resulta que la web de Github está diseñada con el framework Bootstrap  <https://getbootstrap.com/>
+-   Bootstrap es un framework de desarrollo web que liberó Twitter cuando rediseñó su página
+-   Muchas de las páginas del mundo están basadas en Bootstrap. En algunas se nota más que en otras.
+-   Aunque Bootstrap tiene iconos, hay otro proyecto que también se usa, [Fontawesome](https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free)
+
+
+## The Guardian
+
+Vaya sorpresa me he llevado cuando el clásico "We Are Hiring!" del código fuente de [The Guardian](https://www.theguardian.com/international):  
+
+![img](/img/the-guardian-source.png "We Are Hiring!")  
+
+Ha sido sustituida por:  
+
+![img](/img/the-guardian-200.png "G: 200 Anniversary The Guardian")  
+
+Resulta que este año se celebra el bicentenario del periódico.  
+
+
+## Github
+
+-   Vamos a github y copiamos la dirección del repositorio, por ejemplo: `https://github.com/Pontedatos/uc3m-periodismo-datos.git`
+-   Lo clonamos en el directorio donde estamos con `git clone https://github.com/Pontedatos/uc3m-periodismo-datos.git`.
+-   Esto significa que creara una carpeta/directorio en nuestro espacio con el nombre `uc3m-periodismo-datos` con el contenido de ese repositorio remoto.
+-   Si añadimos al final, separado con un espacio, un nombre, llamará a la carpeta como queramos. Por ejemplo, `git clone https://github.com/Pontedatos/uc3m-periodismo-datos.git periodismodatos`, la carpeta con el contenido será `periodismodatos`.
+-   Para comprobar que lo hemos descargado/clonado, lanzamos `ls`, se tendrá que ver el nombre del directorio tal como lo hemos llamado.
+-   Ahora vamos a entrar/cambiar a ese directorio con el comando `cd`, de *change directory*, que lo podemos recordar por "Cambiar de Directorio". Así, `cd uc3m-periodismo-datos` nos lleva a ese directorio.
+-   Lo listamos con `ls` para comprobar su contenido.
+-   Si en vez de `ls` lanzamos las opciones `ls -la` vemos que tiene un directorio de nombre `.git` que es donde está toda la configuración de este repositorio git.
+-   Es decir, esta carpeta también es un repositorio git local.
+-   Si queremos saber a dónde apunta hacemos `git remote -v` y nos dice la URL de donde hacer "fetch", de donde descargar datos, y a donde hacer "push", donde subir datos.
+-   Mañana practicaremos con esto.
+-   Para volver al directorio anterior tenemos que subir o retroceder un directorio, lo hacemos con `cd ../`
+
+
+## Pendientes
+
+-   [ ] Ley de Moore
+-   [ ] Entidades HTML
+-   [ ] Caracteres reservados
+-   [ ] `ls -la`
+-   [ ] xcode
+-   [ ] Datos abiertos: 5 estrellas <https://5stardata.info/en/>
+-   [ ] Journalism in the Age of Data: <http://datajournalism.stanford.edu/>
+-   
+
+
+# Pruebas
+
+-   Cuál es el primer comando que deberías usar en la terminal. Explica tu respuesta. Pista: describe la estructura de ficheros de tu equipo y el lugar donde te encuentras.
+-   ¿Como te mueves por el árbol de directorios de tu sistema de ficheros? Razona tu respuesta.
+-   Si quisieras clonar un repositorio git, ¿qué pasos tendrías que dar? ¿Cómo comprobarías que ha funcionado?
+
