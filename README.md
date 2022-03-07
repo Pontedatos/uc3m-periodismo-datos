@@ -2,7 +2,7 @@
 
 ## 2021-2022 P63
 
-Estamos con git
+Estamos con git, configurando
 
 ## 2021-2022 P61
 Notas sobre **Periodismo de Datos** en *UC3M*
